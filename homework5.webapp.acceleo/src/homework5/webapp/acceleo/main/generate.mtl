@@ -1,0 +1,17 @@
+[comment encoding = UTF-8 /]
+[module generate('https://homework5/webapp/acc')]
+[import homework5::webapp::acceleo::main::createTables /]
+[import homework5::webapp::acceleo::main::select /]
+[import homework5::webapp::acceleo::main::selectPK /]
+
+[template public generateElement(aWebApp : WebApp)]
+[comment @main/]
+[file (aWebApp.name, false, 'UTF-8')]
+Results for the CREATE TABLE query:
+	[for (table : Table | aWebApp.tables)][table.createTables()/][/for]
+Results for the SELECT query:
+	[for (table : Table | aWebApp.tables)][table.select()/][/for]
+Results for the SELECT(with the primary key) query:
+	[for (table : Table | aWebApp.tables)][table.selectPK()/][/for]
+[/file]
+[/template]

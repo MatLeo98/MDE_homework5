@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<wa:WebApp xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:wa="https://homework5/webapp" name="SportWebsite" version="1.1">
+  <tables name="Team">
+    <columns name="id" type="int" isPK="true"/>
+    <columns name="name"/>
+    <columns name="city"/>
+    <columns name="nation"/>
+  </tables>
+  <tables name="Player">
+    <columns name="pid" isPK="true"/>
+    <columns name="fullname"/>
+    <columns name="age"/>
+    <columns name="nationality"/>
+    <columns name="goals" type="int"/>
+  </tables>
+  <pages name="AC Milan">
+    <individual name="ac milan" table="//@tables.0">
+      <attributes name="1" type="int" isPK="true"/>
+      <attributes name="AC Milan"/>
+      <attributes name="Milan"/>
+      <attributes name="Italy"/>
+    </individual>
+    <contents name="description" type="textarea"/>
+    <contents name="podcast.mp3"/>
+  </pages>
+  <pages name="Chelsea">
+    <individual name="chelsea" table="//@tables.0">
+      <attributes name="2" type="int" isPK="true"/>
+      <attributes name="Chelsea"/>
+      <attributes name="London"/>
+      <attributes name="England"/>
+    </individual>
+    <contents name="description" type="textarea"/>
+    <contents name="podcast.mp3"/>
+  </pages>
+  <pages name="O.Giroud">
+    <individual name="o.giroud" table="//@tables.1">
+      <attributes name="1" isPK="true"/>
+      <attributes name="Olivier Giroud"/>
+      <attributes name="36"/>
+      <attributes name="France"/>
+      <attributes name="5" type="int"/>
+    </individual>
+    <contents name="description" type="textarea"/>
+    <contents name="podcast.mp3"/>
+  </pages>
+  <pages name="K.Havertz">
+    <individual name="k.havertz" table="//@tables.1">
+      <attributes name="2" isPK="true"/>
+      <attributes name="Kai Havertz"/>
+      <attributes name="23"/>
+      <attributes name="Germany"/>
+      <attributes name="2" type="int"/>
+    </individual>
+    <contents name="description" type="textarea"/>
+    <contents name="podcast.mp3"/>
+  </pages>
+  <pages name="Champions League">
+    <list name="teamstandings" table="//@tables.0">
+      <links individual="//@pages.1/@individual" name="Chelsea"/>
+      <links individual="//@pages.0/@individual" name="Milan"/>
+    </list>
+    <list name="scorers" table="//@tables.1">
+      <links individual="//@pages.3/@individual" name="Kai Havertz"/>
+      <links individual="//@pages.2/@individual" name="Olivier Giroud"/>
+    </list>
+    <list name="assists" table="//@tables.1">
+      <links individual="//@pages.3/@individual" name="Kai Havertz"/>
+    </list>
+    <contents name="description" type="textarea"/>
+    <contents name="podcast.mp3"/>
+  </pages>
+  <social name="Instagram" external_link="https://www.instagram.com"/>
+  <social name="Facebook" external_link="https://www.facebook.com"/>
+</wa:WebApp>

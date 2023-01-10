@@ -1,0 +1,9 @@
+[comment encoding = UTF-8 /]
+[module selectPK('https://homework5/webapp/acc')]
+
+
+[template public selectPK(aTable : Table)]
+
+SELECT [for (column : Column | aTable.columns)separator (',')] [column.name/][/for] FROM [aTable.name/] WHERE [for (column : Column | aTable.columns->select(a | a.isPK = true))][column.name/] = ?[/for];
+
+[/template]

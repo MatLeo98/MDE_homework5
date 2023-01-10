@@ -1,0 +1,113 @@
+-- @path WebApplication=/WebApplication2WebApp/WebApplication.ecore
+-- @path WebApp=/WebApplication2WebApp/WebApp.ecore
+
+module WebApplication2WebApp;
+create OUT: WebApp from IN: WebApplication;
+
+rule WebApplication2WebApp {
+	from
+		s: WebApplication!WebApplication
+	to
+		t: WebApp!WebApp (
+			name <- s.name,
+			tables <- s.entities,
+			pages <- s.pages,
+			version <- s.version + '.' + s.subversion,
+			social <- t1,
+			social <- t2
+		),
+		t1 : WebApp!Social(
+	        name <- 'Instagram',
+			external_link <- 'https://www.instagram.com'
+        ),
+		t2 : WebApp!Social(
+            name <- 'Facebook',
+			external_link <- 'https://www.facebook.com'
+            )
+}
+
+rule ContentsHub2Column {
+	from
+		s : WebApplication!ContentsHub
+	to
+		t : WebApp!Column (
+			    name <- s.name,
+				type <- s.attribute.type,
+				isPK <- s.attribute.isPK
+		)
+}
+
+rule Individual{
+	from 
+		s : WebApplication!Individual
+	to
+		t : WebApp!Individual(
+			name <- s.name,
+			table <- s.entity,
+			attributes <- s.attributes
+			)
+}
+
+rule Entity2Table{
+	from
+		s: WebApplication!Entity
+	to
+		t: WebApp!Table (
+			name <- s.name,
+			columns <- s.attributes
+		)
+}
+
+rule Attribute2Column{
+	from
+		s : WebApplication!Attribute
+	to
+		t : WebApp!Column(
+			name <- s.name,
+			type <- s.type,
+			isPK <- s.isPK
+			)
+}
+
+rule Page{
+	from
+		s : WebApplication!Page
+	to
+		t : WebApp!Page(
+			name <- s.name,
+			individual <- s.individual,
+			list <- s.list,
+			contents <- t1,
+			contents <- t2
+			),
+		t1 : WebApp!Content(
+        name <- 'description',
+		type <- 'textarea'
+        ),
+		t2 : WebApp!Content(
+            name <- 'podcast.mp3',
+			type <- 'audio'
+            )
+}
+
+rule Index{
+	from
+		s : WebApplication!Index
+	to
+		t : WebApp!Index(
+			name <- s.name,
+			table <- s.entity,
+			individuals <- s.individuals,
+			links <- s.links
+			)
+}
+
+rule Link{
+	from
+		s : WebApplication!Link
+	to
+		t : WebApp!Link(
+			individual <- s.individual,
+			name <- s.name
+			)
+}

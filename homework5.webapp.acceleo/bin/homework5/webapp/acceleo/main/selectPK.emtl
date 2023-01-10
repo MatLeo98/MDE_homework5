@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="selectPK" nsURI="homework5::webapp::acceleo::main::selectPK" startHeaderPosition="29" endHeaderPosition="200">
+    <input>
+      <takesTypesFrom href="https://homework5/webapp/acc#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="selectPK" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;SELECT "/>
+      <body xsi:type="mtl:ForBlock">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="column" referredVariable="/0/selectPK/%.1/column">
+            <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Column"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="https://homework5/webapp/acc#//NamedElement/name"/>
+        </body>
+        <loopVariable name="column">
+          <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Column"/>
+        </loopVariable>
+        <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/6/OrderedSet(Column)">
+          <source xsi:type="ocl.ecore:VariableExp" name="aTable" referredVariable="/0/selectPK/aTable">
+            <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Table"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="https://homework5/webapp/acc#//Table/columns"/>
+        </iterSet>
+        <each xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=",">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </each>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" FROM "/>
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="aTable" referredVariable="/0/selectPK/aTable">
+          <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Table"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="https://homework5/webapp/acc#//NamedElement/name"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" WHERE "/>
+      <body xsi:type="mtl:ForBlock">
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="column" referredVariable="/0/selectPK/%.5/column">
+            <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Column"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="https://homework5/webapp/acc#//NamedElement/name"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = ?"/>
+        <loopVariable name="column">
+          <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Column"/>
+        </loopVariable>
+        <iterSet xsi:type="ocl.ecore:IteratorExp" name="select" eType="/6/OrderedSet(Column)">
+          <source xsi:type="ocl.ecore:PropertyCallExp" eType="/6/OrderedSet(Column)">
+            <source xsi:type="ocl.ecore:VariableExp" name="aTable" referredVariable="/0/selectPK/aTable">
+              <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Table"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="https://homework5/webapp/acc#//Table/columns"/>
+          </source>
+          <body xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/selectPK/%.5/select/a">
+                <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Column"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="https://homework5/webapp/acc#//Column/isPK"/>
+            </source>
+            <argument xsi:type="ocl.ecore:BooleanLiteralExp" booleanSymbol="true">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/="/>
+          </body>
+          <iterator xsi:type="ocl.ecore:Variable" name="a">
+            <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Column"/>
+          </iterator>
+        </iterSet>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;"/>
+      <parameter name="aTable">
+        <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Table"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="selectPK">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/selectPK"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aTable">
+          <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Table"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Web_Table_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="https://homework5/webapp/acc#//Table"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Table"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Table"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Column)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Column"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Table"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Table"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Column"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Column"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Table"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Table"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Table"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Column"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Column"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://homework5/webapp/acc#//Table"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/selectPK">
+      <details key="start" value="81"/>
+      <details key="end" value="340"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/selectPK/%">
+      <details key="start" value="124"/>
+      <details key="end" value="132"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/selectPK/%.1">
+      <details key="start" value="132"/>
+      <details key="end" value="208"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/selectPK/%.1/%">
+      <details key="start" value="187"/>
+      <details key="end" value="188"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/selectPK/%.1/%.1">
+      <details key="start" value="189"/>
+      <details key="end" value="200"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/selectPK/%.1/%.1/column">
+      <details key="start" value="189"/>
+      <details key="end" value="195"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/selectPK/%.1/column">
+      <details key="start" value="138"/>
+      <details key="end" value="153"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/selectPK/%.1/%.2">
+      <details key="start" value="156"/>
+      <details key="end" value="170"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/selectPK/%.1/%.2/aTable">
+      <details key="start" value="156"/>
+      <details key="end" value="162"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/selectPK/%.1/%.3">
+      <details key="start" value="182"/>
+      <details key="end" value="185"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/selectPK/%.2">
+      <details key="start" value="208"/>
+      <details key="end" value="214"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/selectPK/%.3">
+      <details key="start" value="215"/>
+      <details key="end" value="226"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/selectPK/%.3/aTable">
+      <details key="start" value="215"/>
+      <details key="end" value="221"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/selectPK/%.4">
+      <details key="start" value="228"/>
+      <details key="end" value="235"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/selectPK/%.5">
+      <details key="start" value="235"/>
+      <details key="end" value="326"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/selectPK/%.5/%">
+      <details key="start" value="303"/>
+      <details key="end" value="314"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/selectPK/%.5/%/column">
+      <details key="start" value="303"/>
+      <details key="end" value="309"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/selectPK/%.5/%.1">
+      <details key="start" value="316"/>
+      <details key="end" value="320"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/selectPK/%.5/column">
+      <details key="start" value="241"/>
+      <details key="end" value="256"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/selectPK/%.5/select">
+      <details key="start" value="259"/>
+      <details key="end" value="300"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/selectPK/%.5/select/%">
+      <details key="start" value="259"/>
+      <details key="end" value="273"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/selectPK/%.5/select/%/aTable">
+      <details key="start" value="259"/>
+      <details key="end" value="265"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/selectPK/%.5/select/%.1">
+      <details key="start" value="286"/>
+      <details key="end" value="299"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/selectPK/%.5/select/%.1/%">
+      <details key="start" value="286"/>
+      <details key="end" value="292"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/selectPK/%.5/select/%.1/%/a">
+      <details key="start" value="286"/>
+      <details key="end" value="287"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/selectPK/%.5/select/%.1/%.1">
+      <details key="start" value="295"/>
+      <details key="end" value="299"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/selectPK/%.5/select/a">
+      <details key="start" value="282"/>
+      <details key="end" value="283"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/selectPK/%.6">
+      <details key="start" value="326"/>
+      <details key="end" value="328"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/selectPK/aTable">
+      <details key="start" value="107"/>
+      <details key="end" value="121"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>
